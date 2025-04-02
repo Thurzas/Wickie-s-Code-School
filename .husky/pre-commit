@@ -1,0 +1,43 @@
+say_message() {
+  MESSAGE=$1
+  PONY=$2
+  
+  if command -v ponysay &> /dev/null; then
+    echo "pony is installed"
+    ponysay -f "$PONY" "$MESSAGE"
+  elif command -v cowsay &> /dev/null; then
+    cowsay "$MESSAGE"
+  else
+    echo "$MESSAGE"
+  fi
+}
+#!/bin/sh
+fileList=$(git diff --staged --name-only :^package-lock.json :^README.md :^client :^server)
+
+echo '----- Checking Root...'
+
+if [ ! -z "$fileList" ]; then
+  echo "error: Unauthorized modifications\n"
+  echo "$fileList\n"
+  echo "use 'git restore --staged ...' to fix the problem"
+  echo "(and ask your instructor why you should not change these files)\n"
+  
+  say_message "Commit Rejected! Fix your staged files!" "twilightrage"
+  exit 1
+fi
+
+echo '----- Done!'
+
+npx validate-branch-name
+if [ $? -ne 0 ]; then
+  say_message "Branch name is invalid! Fix it!" "derpysad"
+  exit 1
+fi
+
+npm run check
+if [ $? -ne 0 ]; then
+  say_message "Linting or tests failed! Fix your code!" "rainbowsleep"
+  exit 1
+fi
+
+say_message "Great job! Commit accepted!" "twilight"
