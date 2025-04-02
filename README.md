@@ -7,7 +7,8 @@ Wickie's Code School est un projet de plateforme de cours en ligne thematisé su
 bah c'est le nom anglais d'un petit viking issue d'un vieux déssin animé, on l'a connue en france sous le nom de "vic le viking", si ce nom ne vous dit rien, il a pourtant influencé un manga très connue : One piece.
 Vic le viking, c'est l'un des déssins animés qui a marqué Eichiro Oda dans son enfance.
 
-![images](https://github.com/user-attachments/assets/d14f8ce6-853e-4d14-820a-503b387979ca)
+![vic-le-viking-250](https://github.com/user-attachments/assets/77702337-a936-42ae-94a4-f773c4200b3b)
+
 
 # ok, c'est quoi le plan du coup ?
 
