@@ -1,0 +1,84 @@
+.questComponent {
+  display: flex;
+  flex-direction: column;
+  border-image-source: url("../src/assets/images/questBorderImage.svg");
+  border-image-slice: 237;
+  border-image-width: 35px;
+  border-image-outset: 11;
+  border-image-repeat: stretch;
+  border-style: solid;
+  list-style: none;
+  margin: 90px auto;
+  background-color: #feefd3;
+  width: fit-content;
+  height: clamp(100%, fit-content, 100%);
+  padding: 35px !important;
+  box-shadow: 0px 20px 20px 20px black;
+  perspective: 1000px;
+  background-blend-mode: multiply;
+  position: relative;
+  filter: url(#crumpledPaper);
+}
+
+.paperComponent {
+  display: flex;
+  flex-direction: column;
+  border-image-source: url("../src/assets/images/questBorderImage.svg");
+  border-image-slice: 237;
+  border-image-width: 35px;
+  border-image-outset: 11;
+  border-image-repeat: stretch;
+  border-style: solid;
+  list-style: none;
+  background: #feefd3;
+  width: fit-content;
+  height: clamp(100%, fit-content, 100%);
+  padding: 35px !important;
+  box-shadow: 0px 20px 20px 20px black;
+  perspective: 1000px;
+  background-blend-mode: multiply;
+  position: relative;
+  filter: url(#crumpledPaper);
+}
+.paperLayout {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.avatar {
+  width: 250px;
+  scale: 1;
+}
+.footer {
+  position: relative;
+  bottom: -100px;
+}
+.wanted {
+  margin-bottom: 60px;
+  color: rgb(110, 2, 2);
+  font-family: "Rock Salt", cursive;
+  font-size: 60px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+.dead {
+  margin-bottom: 40px;
+  color: rgb(110, 2, 2);
+  font-family: "Rock Salt", cursive;
+  font-size: 60px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.reward {
+  font-size: 35px;
+}

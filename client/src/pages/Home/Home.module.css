@@ -1,0 +1,42 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+}
+.joinTheCrew {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  button {
+    width: fit-content;
+    padding: 10px;
+    border-radius: 7px;
+    background-color: "#ffd8a8";
+  }
+}
+.content {
+  background-image: url("../../assets/images/liege.jpg");
+  background-size: contain;
+  border-color: black;
+  box-shadow: 2px 2px 4px 4px black;
+  border-radius: 3%;
+  display: flex;
+  scale: 0.7;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto 0;
+  width: 100%;
+  gap: 60px;
+}
+.AuthorInfos {
+  position: relative;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+}

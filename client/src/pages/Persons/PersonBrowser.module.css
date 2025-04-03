@@ -1,0 +1,25 @@
+.layoutPerson {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  gap: 50px;
+}
+
+.person {
+  border-radius: 50%;
+  background-color: white;
+  overflow: hidden;
+  aspect-ratio: 1;
+  width: fit-content;
+  scale: 0.5;
+  img {
+    aspect-ratio: 1;
+  }
+  h2 {
+    text-align: center !important;
+  }
+  p {
+    opacity: 0;
+  }
+}

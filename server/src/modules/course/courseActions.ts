@@ -1,7 +1,7 @@
 import type { RequestHandler } from "express";
 
 // Import access to data
-import courseRepository from "./courseRepository";
+import courseRepository, { type Course } from "./courseRepository";
 
 // The B of BREAD - Browse (Read All) operation
 const browse: RequestHandler = async (req, res, next) => {
@@ -37,6 +37,29 @@ const read: RequestHandler = async (req, res, next) => {
   }
 };
 
+// E of BREAD
+const edit: RequestHandler = async (req, res, next) => {
+  try {
+    const newCourse = {
+      id: Number(req.body.id),
+      title: String(req.body.title),
+      corpus: String(req.body.corpus),
+      is_active: Boolean(req.body.is_active),
+      id_category: Number(req.body.id_category),
+      topic_id: Number(req.body.topic_id),
+    } as Course;
+
+    const affectedRows = await courseRepository.update(newCourse);
+    if (affectedRows === 0) {
+      res.sendStatus(404);
+      return;
+    }
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
 // The A of BREAD - Add (Create) operation
 const add: RequestHandler = async (req, res, next) => {
   try {
@@ -45,10 +68,11 @@ const add: RequestHandler = async (req, res, next) => {
     const newcourse = {
       title: req.body.title,
       corpus: req.body.corpus,
-      is_active: Number(req.body.age),
+      is_active: Boolean(req.body.is_active),
       id_category: Number(req.body.id_category),
       topic_id: Number(req.body.topic_id),
     };
+
     console.info(newcourse);
     // Create the course
     const insertId = await courseRepository.create(newcourse);
@@ -61,4 +85,4 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add };
+export default { browse, read, add, edit };

@@ -159,31 +159,6 @@ CREATE TABLE validation (
     FOREIGN KEY (id_course) REFERENCES course(id) ON DELETE CASCADE
 );
 
--- Créer un trigger qui se déclenche après insertion d'un commentaire validé
-DELIMITER $$
-
-CREATE TRIGGER auto_validate_solution
-AFTER INSERT ON comment_solution
-FOR EACH ROW
-BEGIN
-    DECLARE current_count INT;
-
-    -- Calcul du nombre de validations pour la solution concernée
-    SELECT COUNT(*) INTO current_count 
-    FROM comment_solution c 
-    WHERE c.id_solution = NEW.id_solution AND c.isValidated = 1;
-
-    -- Vérifier si le seuil de validation (ex: 2) est atteint
-    IF current_count >= 2 THEN
-        UPDATE solution 
-        SET isValidated = 1 
-        WHERE id = NEW.id_solution;
-    END IF;
-END$$
-
-DELIMITER ;
-
-
 -- Insertion des utilisateurs
 INSERT INTO user (firstname_user, lastname_user, age_user, role_user, level_user, xp_user) VALUES
 ('Bjorn', 'Ironside', 20, 'aspirant', 1, 50),

@@ -20,3 +20,20 @@ app
   .on("error", (err: Error) => {
     console.error("Error:", err.message);
   });
+
+import path from "node:path";
+
+app.get("/api/images/users/:imageName", (req, res) => {
+  const { imageName } = req.params;
+  console.info(req.params);
+  const imageDirectory = path.join(__dirname, "../public/assets/images/");
+
+  const imagePath = path.join(imageDirectory, imageName);
+  console.info("fetched:", imagePath);
+  res.sendFile(imagePath, (err) => {
+    if (err) {
+      console.error("Erreur lors de l’envoi de l’image :", err);
+      res.status(404).send("Image non trouvée");
+    }
+  });
+});

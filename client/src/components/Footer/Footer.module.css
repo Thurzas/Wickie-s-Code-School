@@ -1,0 +1,18 @@
+.FooterLogoContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 25px;
+}
+
+.FooterContainer {
+  position: relative;
+  bottom: 0px;
+}
+
+.FooterSVG {
+  stroke: var(--color-primary);
+}
+
+.rights {
+  text-align: center;
+}
