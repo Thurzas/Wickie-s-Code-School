@@ -13,7 +13,6 @@ router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);
 router.post("/api/items", itemActions.add);
 
-
 import userActions from "./modules/users/userActions";
 
 router.get("/api/users/", userActions.browse);
@@ -23,7 +22,7 @@ router.post("/api/users/add", userActions.add);
 import solutionActions from "./modules/solution/solutionActions";
 
 router.get("/api/solutions", solutionActions.browse);
-router.get("/api/solutions/course/:id",solutionActions.browseByCourse);
+router.get("/api/solutions/course/:id", solutionActions.browseByCourse);
 /* ************************************************************************* */
 
 export default router;

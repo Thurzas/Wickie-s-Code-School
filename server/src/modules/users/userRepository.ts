@@ -7,10 +7,10 @@ type User = {
   firstname: string;
   lastname: string;
   age?: number;
-  privillege: 'aspirant' | 'viking' | 'jaarl' | 'thor' | 'odin';
+  privillege: "aspirant" | "viking" | "jaarl" | "thor" | "odin";
   level: number;
   xp: number;
-}
+};
 
 class UserRepository {
   // The C of CRUD - Create operation
@@ -19,7 +19,13 @@ class UserRepository {
     // Execute the SQL INSERT query to add a new User to the "User" table
     const [result] = await databaseClient.query<Result>(
       "INSERT INTO user (firstname, lastname, age, privillege, level, xp) VALUES(?,?,?,?,?,?)",
-      [User.firstname, User.lastname, User.age, User.privillege, User.level, User.xp
+      [
+        User.firstname,
+        User.lastname,
+        User.age,
+        User.privillege,
+        User.level,
+        User.xp,
       ],
     );
 

@@ -43,14 +43,14 @@ const add: RequestHandler = async (req, res, next) => {
     // Extract the course data from the request body
     console.info(req.body);
     const newcourse = {
-        title: req.body.title,
-        corpus: req.body.corpus,
-        is_active: Number(req.body.age),
-        id_category: Number(req.body.id_category),
-        topic_id: Number(req.body.topic_id)
-      }
+      title: req.body.title,
+      corpus: req.body.corpus,
+      is_active: Number(req.body.age),
+      id_category: Number(req.body.id_category),
+      topic_id: Number(req.body.topic_id),
+    };
     console.info(newcourse);
-      // Create the course
+    // Create the course
     const insertId = await courseRepository.create(newcourse);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted course

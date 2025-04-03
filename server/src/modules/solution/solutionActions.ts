@@ -20,7 +20,10 @@ const browse: RequestHandler = async (req, res, next) => {
 const browseByCourse: RequestHandler = async (req, res, next) => {
   try {
     // Fetch all course
-    const courseId = parseInt(req.params.id, 10);
+    const courseId = Number(req.params.id);
+    if (Number.isNaN(courseId)) {
+      res.sendStatus(404);
+    }
     const course = await courseRepository.readByCourse(courseId);
 
     // Respond with the course in JSON format
@@ -61,10 +64,10 @@ const add: RequestHandler = async (req, res, next) => {
       id_course: Number(req.body.id_course),
       corpus_solution: req.body.corpus_solution,
       isValidated: Boolean(req.body.id_category),
-    }
+    };
 
     console.info(newSolution);
-      // Create the course
+    // Create the course
     const insertId = await courseRepository.create(newSolution);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted course

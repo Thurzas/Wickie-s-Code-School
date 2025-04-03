@@ -1,16 +1,16 @@
-import { ResultSetHeader } from "mysql2/promise";
+import type { ResultSetHeader } from "mysql2/promise";
 import databaseClient from "../../../database/client";
 
 import type { Result, Rows } from "../../../database/client";
 
-type Course= {
+type Course = {
   id: number;
   title: string;
   corpus: string;
   is_active: number;
   id_category: number;
   topic_id: number;
-}
+};
 
 class CourseRepository {
   // The C of CRUD - Create operation
@@ -19,7 +19,12 @@ class CourseRepository {
     // Execute the SQL INSERT query to add a new Course to the "Course" table
     const [result] = await databaseClient.query<Result>(
       "INSERT INTO course (id_category, title, corpus, is_active, topic_id) VALUES(?,?,?,?,?)",
-      [Course.id_category, Course.title, Course.corpus, Course.is_active, Course.topic_id
+      [
+        Course.id_category,
+        Course.title,
+        Course.corpus,
+        Course.is_active,
+        Course.topic_id,
       ],
     );
 
@@ -71,7 +76,6 @@ class CourseRepository {
     );
     return result.affectedRows;
   }
-
 }
 
 export default new CourseRepository();

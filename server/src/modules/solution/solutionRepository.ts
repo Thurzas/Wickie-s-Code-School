@@ -1,15 +1,15 @@
-import { ResultSetHeader } from "mysql2/promise";
+import type { ResultSetHeader } from "mysql2/promise";
 import databaseClient from "../../../database/client";
 
 import type { Result, Rows } from "../../../database/client";
 
-type Solution= {
+type Solution = {
   id: number;
   id_user: number;
   id_course: number;
   corpus_solution: string;
-  isValidated : boolean;
-}
+  isValidated: boolean;
+};
 
 class SolutionRepository {
   // The C of CRUD - Create operation
@@ -18,8 +18,7 @@ class SolutionRepository {
     // Execute the SQL INSERT query to add a new Solution to the "Solution" table
     const [result] = await databaseClient.query<Result>(
       "INSERT INTO solution (id_user, id_course, corpus_solution) VALUES(?,?,?)",
-      [Solution.id_user, Solution.id_course, Solution.corpus_solution
-      ],
+      [Solution.id_user, Solution.id_course, Solution.corpus_solution],
     );
 
     // Return the ID of the newly inserted Solution
@@ -61,10 +60,7 @@ class SolutionRepository {
   async update(Solution: Solution): Promise<number> {
     const [result] = await databaseClient.query<ResultSetHeader>(
       "UPDATE Solution SET corpus_solution = ? WHERE id = ?",
-      [
-        Solution.corpus_solution,
-        Solution.id,
-      ],
+      [Solution.corpus_solution, Solution.id],
     );
     return result.affectedRows;
   }

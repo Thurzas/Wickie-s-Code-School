@@ -4,7 +4,7 @@ Wickie's Code School est un projet de plateforme de cours en ligne thematisé su
 
 # ok, mais pourquoi Wickie ?
 
-bah c'est le nom anglais d'un petit viking issue d'un vieux déssin animé, on l'a connue en france sous le nom de "vic le viking", si ce nom ne vous dit rien, il a pourtant influencé un manga très connue : One piece.
+bah c'est le nom à l'international d'un petit viking issue d'un vieux déssin animé, on l'a connue en france sous le nom de "vic le viking", si ce nom ne vous dit rien, il a pourtant influencé un manga très connue : One piece.
 Vic le viking, c'est l'un des déssins animés qui a marqué Eichiro Oda dans son enfance.
 
 ![vic-le-viking-250](https://github.com/user-attachments/assets/77702337-a936-42ae-94a4-f773c4200b3b)

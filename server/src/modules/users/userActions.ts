@@ -43,15 +43,15 @@ const add: RequestHandler = async (req, res, next) => {
     // Extract the user data from the request body
     console.info(req.body);
     const newUser = {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        age: Number(req.body.age),
-        privillege: req.body.privillege,
-        level: req.body.level,
-        xp: req.body.xp,
-      }
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      age: Number(req.body.age),
+      privillege: req.body.privillege,
+      level: req.body.level,
+      xp: req.body.xp,
+    };
     console.info(newUser);
-      // Create the user
+    // Create the user
     const insertId = await userRepository.create(newUser);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted user
