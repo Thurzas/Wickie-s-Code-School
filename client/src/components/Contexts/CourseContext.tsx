@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 import { useNavigate } from "react-router";
-import CourseCard from "../Course/CourseCard";
+import CourseDetailCard from "../Course/CourseDetailCard";
 import EditCourseCard from "../Course/EditCourseCard";
 import Wanted from "../Wanted/Wanted";
 import { useModal } from "./ModalContext";
@@ -80,7 +80,7 @@ export const CoursesProvider = ({ children }: { children: ReactNode }) => {
     openModal(
       "edit",
       <Wanted>
-        <CourseCard data={Course} />
+        <CourseDetailCard data={Course} />
       </Wanted>,
     );
   };

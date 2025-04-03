@@ -14,7 +14,6 @@ const CourseBrowser = () => {
             className={style.course}
             key={course.id}
             onClick={() => {
-              console.info("clicked on ", course);
               showCourse(course);
             }}
           >
