@@ -63,7 +63,7 @@ const add: RequestHandler = async (req, res, next) => {
       id_user: Number(req.body.id_user),
       id_course: Number(req.body.id_course),
       corpus_solution: req.body.corpus_solution,
-      isValidated: Boolean(req.body.id_category),
+      isValidated: Boolean(req.body.isValidated),
     };
 
     console.info(newSolution);

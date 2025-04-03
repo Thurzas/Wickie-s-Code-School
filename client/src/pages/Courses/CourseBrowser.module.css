@@ -1,0 +1,15 @@
+.layoutcourse {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 150px;
+  width: 100%;
+  align-items: stretch;
+  margin: 0 auto;
+}
+.course {
+  width: clamp(20%, 20%, 50%);
+  align-items: stretch;
+  text-align: center;
+}

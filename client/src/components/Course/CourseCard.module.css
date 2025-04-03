@@ -1,0 +1,13 @@
+.topic {
+  width: 150px;
+  aspect-ratio: 1;
+}
+.type {
+  text-align: center;
+}
+.CourseLayout {
+  width: clamp(100%, 100%, 500%);
+  padding: 10px;
+  background-color: white;
+  align-items: stretch; /* Force tous les éléments enfants à s'étirer */
+}

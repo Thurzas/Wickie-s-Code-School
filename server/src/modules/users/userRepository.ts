@@ -6,6 +6,8 @@ type User = {
   id: number;
   firstname: string;
   lastname: string;
+  pseudo: string;
+  image: string;
   age?: number;
   privillege: "aspirant" | "viking" | "jaarl" | "thor" | "odin";
   level: number;
@@ -18,10 +20,12 @@ class UserRepository {
   async create(User: Omit<User, "id">) {
     // Execute the SQL INSERT query to add a new User to the "User" table
     const [result] = await databaseClient.query<Result>(
-      "INSERT INTO user (firstname, lastname, age, privillege, level, xp) VALUES(?,?,?,?,?,?)",
+      "INSERT INTO user (firstname, lastname,pseudo, image, age, privillege, level, xp) VALUES(?,?,?,?,?,?,?)",
       [
         User.firstname,
         User.lastname,
+        User.pseudo,
+        User.image,
         User.age,
         User.privillege,
         User.level,

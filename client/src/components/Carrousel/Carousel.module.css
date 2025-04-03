@@ -1,0 +1,44 @@
+.carousel {
+  position: relative;
+  margin: 0 auto;
+  height: clamp(50%, fit-content, 50%);
+}
+
+.item {
+  display: none !important;
+  height: 100%;
+}
+.index {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-evenly;
+  :hover {
+    cursor: pointer;
+  }
+}
+.showItem {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  height: 100%;
+}
+.indexItem {
+  color: var(--main-color) !important;
+}
+.currentIndex {
+  fill: red !important;
+  color: white;
+}
+.Right {
+  position: absolute;
+  top: 40vh;
+  right: 0;
+  position: fixed;
+}
+
+.Left {
+  position: absolute;
+  top: 40vh;
+  left: 0;
+  position: fixed;
+}

@@ -1,0 +1,11 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+.avatar {
+  align-items: center;
+  width: 450px;
+  margin: 0 auto;
+}
