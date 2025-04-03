@@ -13,8 +13,8 @@ const PersonCard = ({ data }: { data: Person }) => {
           alt="le gros viking !"
         />
 
-        <h2>{`${data.firstname} "${data.pseudo}" ${data.lastname}`}</h2>
-        <p> age: {data.age} ans</p>
+        <h2 className={style.h2}>{`${data.firstname} "${data.pseudo}" ${data.lastname}`}</h2>
+        <p className={style.age}> age: {data.age} ans</p>
       </div>
     </>
   );
