@@ -10,6 +10,7 @@ import App from "./App";
 import Corrections from "./pages/Corrections/Corrections";
 import CourseBrowser from "./pages/Courses/CourseBrowser";
 import CourseDetail from "./pages/Courses/CourseDetail";
+import CourseEditor from "./pages/Courses/CourseEditor";
 import Home from "./pages/Home/Home";
 import PersonsBrowser from "./pages/Persons/PersonsBrowser";
 
@@ -51,6 +52,14 @@ const router = createBrowserRouter([
       {
         path: "/courses/:id",
         element: <CourseDetail />,
+      },
+      {
+        path: "/courses/edit/:id",
+        element: <CourseEditor />,
+      },
+      {
+        path: "/courses/add/",
+        element: <CourseEditor />,
       },
     ],
   },

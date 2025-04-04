@@ -7,7 +7,8 @@ interface ModalProps {
 }
 
 const Modal = ({ children }: ModalProps) => {
-  const { isOpen, closeModal, modalRef, targetModal } = useModal(); // Récupération du state du context
+  const { isOpen, closeModal, modalRef, targetModal, isScrollable } =
+    useModal(); // Récupération du state du context
   const clickedOnOverlay = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!event?.target) return;
     if (event.currentTarget) {
@@ -20,9 +21,20 @@ const Modal = ({ children }: ModalProps) => {
       {isOpen &&
         createPortal(
           // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
-          <div className={Style.modalOverlay} onClick={clickedOnOverlay}>
-            <div ref={modalRef} className={Style.showItem}>
-              {targetModal || children}
+          <div
+            className={`${isScrollable ? Style.OverLayWithScroll : Style.modalOverlay}`}
+            onClick={clickedOnOverlay}
+          >
+            <div
+              ref={modalRef}
+              className={`${isScrollable ? Style.scrollageItem : Style.showItem}`}
+            >
+              <div
+                ref={modalRef}
+                className={`${Style.showItem} ${isScrollable ? Style.scrollable : ""}`}
+              >
+                {targetModal || children}
+              </div>
             </div>
           </div>,
           document.body,

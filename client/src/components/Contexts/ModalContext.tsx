@@ -17,6 +17,8 @@ interface ModalContextProps {
   targetModal: ReactNode | null;
   modalType: string | null;
   modalRef: RefObject<HTMLDivElement | null>;
+  isScrollable: boolean;
+  setIsScrollable: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 // Création du contexte
@@ -28,6 +30,8 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
   const [targetModal, setTargetModal] = useState<ReactNode | null>(null);
   const [modalType, setModalType] = useState<string | null>(null);
   const modalRef = useRef<HTMLDivElement | null>(null);
+  const [isScrollable, setIsScrollable] = useState(false);
+
   const openModal = (type?: string, component?: ReactNode) => {
     setModalType(type ?? "default");
     setTargetModal(component);
@@ -67,6 +71,8 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
         targetModal,
         modalType,
         modalRef,
+        isScrollable,
+        setIsScrollable,
       }}
     >
       {children}

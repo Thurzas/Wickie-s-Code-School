@@ -64,7 +64,6 @@ const edit: RequestHandler = async (req, res, next) => {
 const add: RequestHandler = async (req, res, next) => {
   try {
     // Extract the course data from the request body
-    console.info(req.body);
     const newcourse = {
       title: req.body.title,
       corpus: req.body.corpus,
@@ -72,8 +71,6 @@ const add: RequestHandler = async (req, res, next) => {
       id_category: Number(req.body.id_category),
       topic_id: Number(req.body.topic_id),
     };
-
-    console.info(newcourse);
     // Create the course
     const insertId = await courseRepository.create(newcourse);
 
@@ -85,4 +82,17 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, edit };
+/**
+ * Supprime un course.
+ */
+const destroy: RequestHandler = async (req, res, next) => {
+  try {
+    const courseId = Number(req.params.id);
+    await courseRepository.delete(courseId);
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { browse, read, add, edit, destroy };

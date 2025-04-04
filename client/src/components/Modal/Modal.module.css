@@ -11,6 +11,18 @@
   backdrop-filter: blur(3px);
 }
 
+.OverLayWithScroll {
+  display: flex;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 200vh;
+  display: grid;
+  place-items: center;
+  z-index: 101;
+  background-color: rgba(87, 86, 86, 0.651);
+  backdrop-filter: blur(3px);
+}
 .showItem {
   z-index: 102;
   position: relative;
@@ -19,7 +31,7 @@
   height: fit-content;
   justify-content: center;
   flex-direction: column;
-  scale: 0.66 !important;
+  scale: 0.85 !important;
   top: -15%;
   @media (width < 767px) {
     max-width: 90vw;
@@ -31,6 +43,17 @@
   }
 }
 
+.scrollageItem {
+  z-index: 102;
+  position: absolute;
+  visibility: visible;
+  display: flex;
+  height: fit-content;
+  justify-content: center;
+  flex-direction: column;
+  overflow-y: auto;
+  top: 0%;
+}
 .hideItem {
   visibility: hidden;
 }
@@ -49,4 +72,8 @@
 
 .closeModal {
   cursor: pointer;
+}
+
+.scrollable {
+  overflow-y: auto;
 }
